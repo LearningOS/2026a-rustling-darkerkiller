@@ -1,6 +1,6 @@
 /*
-	binary_search tree
-	This problem requires you to implement a basic interface for a binary tree
+    binary_search tree
+    This problem requires you to implement a basic interface for a binary tree
 */
 
 //I AM NOT DONE
@@ -50,13 +50,23 @@ where
 
     // Insert a value into the BST
     fn insert(&mut self, value: T) {
-        //TODO
+        match self.root {
+            Some(ref mut root) => root.insert(value),
+            None => self.root = Some(Box::new(TreeNode::new(value))),
+        }
     }
 
     // Search for a value in the BST
     fn search(&self, value: T) -> bool {
-        //TODO
-        true
+        let mut current = &self.root;
+        while let Some(node) = current {
+            match value.cmp(&node.value) {
+                Ordering::Equal => return true,
+                Ordering::Less => current = &node.left,
+                Ordering::Greater => current = &node.right,
+            }
+        }
+        false
     }
 }
 
@@ -66,7 +76,17 @@ where
 {
     // Insert a node into the tree
     fn insert(&mut self, value: T) {
-        //TODO
+        match value.cmp(&self.value) {
+            Ordering::Less => match self.left {
+                Some(ref mut left) => left.insert(value),
+                None => self.left = Some(Box::new(TreeNode::new(value))),
+            },
+            Ordering::Greater => match self.right {
+                Some(ref mut right) => right.insert(value),
+                None => self.right = Some(Box::new(TreeNode::new(value))),
+            },
+            Ordering::Equal => {}
+        }
     }
 }
 
@@ -121,6 +141,4 @@ mod tests {
             None => panic!("Root should not be None after insertion"),
         }
     }
-}    
-
-
+}

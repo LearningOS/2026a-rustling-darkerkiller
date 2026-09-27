@@ -1,6 +1,6 @@
 /*
-	heap
-	This question requires you to implement a binary heap function
+    heap
+    This question requires you to implement a binary heap function
 */
 // I AM NOT DONE
 
@@ -37,7 +37,18 @@ where
     }
 
     pub fn add(&mut self, value: T) {
-        //TODO
+        self.count += 1;
+        self.items.push(value);
+        let mut idx = self.count;
+        while self.parent_idx(idx) > 0 {
+            let parent = self.parent_idx(idx);
+            if (self.comparator)(&self.items[idx], &self.items[parent]) {
+                self.items.swap(idx, parent);
+                idx = parent;
+            } else {
+                break;
+            }
+        }
     }
 
     fn parent_idx(&self, idx: usize) -> usize {
@@ -57,8 +68,17 @@ where
     }
 
     fn smallest_child_idx(&self, idx: usize) -> usize {
-        //TODO
-		0
+        let left = self.left_child_idx(idx);
+        let right = self.right_child_idx(idx);
+        if right <= self.count {
+            if (self.comparator)(&self.items[left], &self.items[right]) {
+                left
+            } else {
+                right
+            }
+        } else {
+            left
+        }
     }
 }
 
@@ -84,8 +104,26 @@ where
     type Item = T;
 
     fn next(&mut self) -> Option<T> {
-        //TODO
-		None
+        if self.is_empty() {
+            return None;
+        }
+
+        self.items.swap(1, self.count);
+        let res = self.items.pop();
+        self.count -= 1;
+
+        let mut idx = 1;
+        while self.children_present(idx) {
+            let child_idx = self.smallest_child_idx(idx);
+            if (self.comparator)(&self.items[child_idx], &self.items[idx]) {
+                self.items.swap(idx, child_idx);
+                idx = child_idx;
+            } else {
+                break;
+            }
+        }
+
+        res
     }
 }
 
