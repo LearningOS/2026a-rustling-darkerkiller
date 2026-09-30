@@ -2,7 +2,7 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-darkerkiller",
-  "commit": "4014a60cc9bea68ac8c4b6858244c165e059972e",
+  "commit": "95058d87440791f8bcffca187541464c60427553",
   "score": 57,
   "totalScore": 110,
   "exercises": [
@@ -778,9 +778,9 @@
     }
   ],
   "student": "darkerkiller",
-  "runId": "36667021508",
+  "runId": "36669151269",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
