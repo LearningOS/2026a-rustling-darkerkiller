@@ -2,8 +2,8 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-darkerkiller",
-  "commit": "5c174a4b6ec287bb9077db6daa8b7ba2640294f2",
-  "score": 48,
+  "commit": "49255efbac361d5495d52e2a5d0c6feab3e7d64c",
+  "score": 51,
   "totalScore": 110,
   "exercises": [
     {
@@ -240,23 +240,23 @@
     {
       "name": "enums1",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "enums2",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "enums3",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "strings1",
@@ -778,9 +778,9 @@
     }
   ],
   "student": "darkerkiller",
-  "runId": "36660612350",
+  "runId": "36663881105",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
